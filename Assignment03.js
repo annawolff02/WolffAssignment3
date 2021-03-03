@@ -59,16 +59,19 @@ window.onload = function init()
     gl.useProgram(program);
 
     vertices = [
-        vec2(0, 1),
-        vec2(-1, 0),
-        vec2(1, 0),
-        vec2(0, -1)
+        vec2(0, .75),
+        vec2(-.75, 0),
+        vec2(.75, 0),
+        vec2(0, -.75)
     ];
 
     verticesTriangle = [
         vec2(-1.0, -1.0),
-        vec2(1.0, -1.0),
-        vec2(0.0, 1.0)
+        vec2(-1.0, -.75),
+        vec2(-.75, -.75),
+        vec2(1.0, 1.0),
+        vec2(.75, 1.0),
+        vec2(1.0, .75)
     ];
 
     var warmColor = [
