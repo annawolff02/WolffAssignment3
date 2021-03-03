@@ -131,6 +131,28 @@ window.onload = function init()
         }
     }
 
+    //implements Key stroke events
+    window.onkeydown = function(event) {
+        var key = String.fromCharCode(event.keyCode);
+        switch( key ) {
+          case 'D': //direction
+          case 'd':
+            direction = !direction;
+            break;
+          case 'F': //faster
+          case 'f':
+            speed += .1;
+            break;
+          case 'S': //slower
+          case 's':
+            speed -= .1;
+            if (speed < 0) {
+                speed = 0;
+            }
+            break;
+        }
+    };
+
     render();
 };
 
