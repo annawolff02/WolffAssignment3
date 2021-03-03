@@ -4,6 +4,23 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 <title>Wolff Assignment 3</title>
 
+<!--  vertext shader for triangle-->
+<script id="vertex-shader-still" type="x-shader/x-vertex">
+    #version 300 es
+
+    in vec4 aPosition;
+
+    void
+    main()
+    {
+        gl_Position.x = aPosition.x;
+        gl_Position.y = aPosition.y;
+        gl_Position.z = 0.0;
+        gl_Position.w = 1.0;
+    }
+</script>
+
+<!--vertext shader for square-->
 <script id="vertex-shader" type="x-shader/x-vertex">
 #version 300 es
 
