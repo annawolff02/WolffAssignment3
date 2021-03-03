@@ -107,8 +107,10 @@ window.onload = function init()
     gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(positionLoc);
 
-    //set up uniform variable
+    //set up uniform variable and establish shaders
+    program = initShaders(gl, "vertex-shader", "fragment-shader");
     thetaLoc = gl.getUniformLocation(program, "uTheta");
+    programTriangle = initShaders(gl, "vertex-shader-still", "fragment-shader");
 
     //set up color?
     loadAttributes(warmColor);
@@ -142,6 +144,10 @@ window.onload = function init()
 function render() {
     gl.clear(gl.COLOR_BUFFER_BIT);
 
+    //draw square
+    gl.useProgram(program);
+
+    //change speed for slider
     if (direction == true) {
         theta += speed;
     }
@@ -149,6 +155,7 @@ function render() {
         theta -= speed;
     }
 
+    //change color for menu
     if (color = "Warm"){
         loadAttributes(warmColor);
     }
