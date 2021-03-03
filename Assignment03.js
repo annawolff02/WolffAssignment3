@@ -111,12 +111,13 @@ window.onload = function init()
         direction = !direction;
     }
 
-    //initalize event hangler (slider)
+    //initalize event handler (slider)
     document.getElementById("slider").onchange = function(event) {
         speed = parseFloat(event.target.value);
         console.log("slider!!!", speed);
     }
 
+    //initalize event handler (menu)
     document.getElementById("Controls").onclick = function(event) {
         switch(event.target.index) {
             case 0:
