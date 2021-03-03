@@ -78,28 +78,27 @@ window.onload = function init()
         vec2(1.0, .75)
     ];
 
-    var warmColor = [
+    warmColor = [
         vec3(1,.3,.7), //pink
         vec3(1,.3,0), //dark orange??
         vec3(.8,0,0), //red
         vec3(.9,.7,0)  //brighter orange
-
     ];
 
-    var coolColor = [
+    coolColor = [
         vec3(.3,0,1), //dark purple??
         vec3(0,.5,.6), //dark blue w green??
         vec3(0,.8,.5), //green w blue??
         vec3(0,1,.7) //light blue? green?
     ];
 
-    let cBuffer = gl.createBuffer();
-    gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
-    gl.bufferData( gl.ARRAY_BUFFER, flatten(warmColor), gl.STATIC_DRAW );
+    // let cBuffer = gl.createBuffer();
+    // gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
+    // gl.bufferData( gl.ARRAY_BUFFER, flatten(warmColor), gl.STATIC_DRAW );
     
-    let colorLoc = gl.getAttribLocation(program, "aColor");
-    gl.vertexAttribPointer(colorLoc, 3, gl.FLOAT, false, 0, 0);
-    gl.enableVertexAttribArray(colorLoc);
+    // let colorLoc = gl.getAttribLocation(program, "aColor");
+    // gl.vertexAttribPointer(colorLoc, 3, gl.FLOAT, false, 0, 0);
+    // gl.enableVertexAttribArray(colorLoc);
 
 
     
@@ -129,6 +128,7 @@ window.onload = function init()
         switch(event.target.index) {
             case 0:
                 color = "Warm";
+                console.log("here");
                 break;
             case 1:
                 color = "Cool";
@@ -180,21 +180,21 @@ function render() {
     //draw it!
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-    //draw triagnle, switch to triangle shaders
-    gl.useProgram(programTriangle);
+    // //draw triagnle, switch to triangle shaders
+    // gl.useProgram(programTriangle);
 
-    //load the data
-    var bufferId2 = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, bufferId2);
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(verticesTriangle), gl.STATIC_DRAW);
+    // //load the data
+    // var bufferId2 = gl.createBuffer();
+    // gl.bindBuffer(gl.ARRAY_BUFFER, bufferId2);
+    // gl.bufferData(gl.ARRAY_BUFFER, flatten(verticesTriangle), gl.STATIC_DRAW);
 
-    //associate shader variables with out data bufferData
-    var positionLoc2 = gl.getAttribLocation(programTriangle, "aPosition");
-    gl.vertexAttribPointer(positionLoc2, 2, gl.FLOAT, false, 0, 0);
-    gl.enableVertexAttribArray(positionLoc2);
+    // //associate shader variables with out data bufferData
+    // var positionLoc2 = gl.getAttribLocation(programTriangle, "aPosition");
+    // gl.vertexAttribPointer(positionLoc2, 2, gl.FLOAT, false, 0, 0);
+    // gl.enableVertexAttribArray(positionLoc2);
 
-    //draw it!
-    gl.drawArrays(gl.TRIANGLES, 0, verticesTriangle.length);
+    // //draw it!
+    // gl.drawArrays(gl.TRIANGLES, 0, verticesTriangle.length);
 
     //change speed for slider
     if (direction == true) {
@@ -205,7 +205,7 @@ function render() {
     }
 
     //change color for menu
-    if (color = "Warm"){
+    if (color == "Warm"){
         loadAttributes(warmColor);
     }
     else {
