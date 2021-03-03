@@ -1,3 +1,7 @@
+// author: Anna Wolff
+// date: March 1
+// description: two triangles in corners, rotating square that changes color with a menu, toggles speed with slider
+// description cont: changes direction with button, changes speed and direction with key strokes
 "use strict";
 
 var canvas;
